@@ -30,7 +30,7 @@ namespace test
 
         public bool Run()
         {
-            //PrepareData();
+            PrepareData();
 
             Predict();
 
