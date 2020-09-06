@@ -1,0 +1,25 @@
+item {
+  name: "car"
+  id: 1
+  display_name: "car"
+}
+item {
+  name: "cash"
+  id: 2
+  display_name: "cash"
+}
+item {
+  name: "person"
+  id: 3
+  display_name: "person"
+}
+item {
+  name: "plate"
+  id: 4
+  display_name: "plate"
+}
+item {
+  name: "weapon"
+  id: 5
+  display_name: "weapon"
+}
