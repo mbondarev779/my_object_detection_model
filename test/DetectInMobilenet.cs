@@ -85,12 +85,18 @@ namespace test
             string sourceDirectory = @"C:\Users\mbond\source\repos\my_object_detection_model\ssd_mobilenet_v2_coco_2018_01_28";
             
             string destinationDirectory = @"C:\Users\mbond\source\repos\my_object_detection_model\test\bin\Debug\netcoreapp3.1\ssd_mobilenet_v2_coco_2018_01_28";
-            var tr = File.Exists(sourceDirectory);
+            string f = @"C:\Users\mbond\source\repos\my_object_detection_model\test\bin\Debug\netcoreapp3.1\ssd_mobilenet_v2_coco_2018_01_28\frozen_inference_graph.pb";
+            var tr = File.Exists(f);
             if (tr)
             {
+                Console.WriteLine("КАЧАЮ ФАЙЛЫ2", Color.Blue);
+                //Directory.Move(sourceDirectory, destinationDirectory);
+            }
+            else 
+            {
+                Console.WriteLine("КАЧАЮ ФАЙЛЫ3", Color.Blue);
                 Directory.Move(sourceDirectory, destinationDirectory);
             }
-            else { }
             //Compress.ExtractTGZ(Path.Join(modelDir, "ssd_mobilenet_v2_coco.tar.gz"), "./");
 
             // download sample picture
