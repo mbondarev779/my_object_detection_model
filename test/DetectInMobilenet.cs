@@ -12,7 +12,7 @@ namespace test
 {
     public class DetectInMobilenet : SciSharpExample, IExample
     {
-        public float MIN_SCORE = 0.6f;
+        public float MIN_SCORE = 0.5f;
 
         string modelDir = "ssd_mobilenet_v2_coco_2018_01_28";
         string imageDir = "images";
@@ -89,12 +89,10 @@ namespace test
             var tr = File.Exists(f);
             if (tr)
             {
-                Console.WriteLine("КАЧАЮ ФАЙЛЫ2", Color.Blue);
-                //Directory.Move(sourceDirectory, destinationDirectory);
+             
             }
             else 
             {
-                Console.WriteLine("КАЧАЮ ФАЙЛЫ3", Color.Blue);
                 Directory.Move(sourceDirectory, destinationDirectory);
             }
             //Compress.ExtractTGZ(Path.Join(modelDir, "ssd_mobilenet_v2_coco.tar.gz"), "./");
@@ -106,7 +104,6 @@ namespace test
             // download the pbtxt file
             url = $"https://raw.githubusercontent.com/mbondarev779/my_object_detection_model/master/label_map.pbtxt";
             Web.Download(url, modelDir, "label_map.pbtxt");
-            Console.WriteLine("КАЧАЮ ФАЙЛЫ", Color.Blue);
         }
         
         private NDArray ReadTensorFromImageFile(string file_name)
