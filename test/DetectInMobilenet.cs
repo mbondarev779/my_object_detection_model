@@ -14,7 +14,7 @@ namespace test
     {
         public float MIN_SCORE = 0.5f;
 
-        string modelDir = "ssd_mobilenet_v2_coco_2018_01_28";
+        string modelDir = "ssd_mobilenet_v2_coco_2018_01_28-master";
         string imageDir = "images";
         string pbFile = "frozen_inference_graph.pb";
         string labelFile = "label_map.pbtxt";
@@ -78,10 +78,14 @@ namespace test
         
         public override void PrepareData()
         {
+        
             // get model file
-            //string url = "https://github.com/mbondarev779/my_object_detection_model/archive/ssd_mobilenet_v2_coco_2018_01_28.tar.gz";
-            //Web.Download(url, modelDir, "ssd_mobilenet_v2_coco.tar.gz");
-            
+            //string url = "http://download.tensorflow.org/models/object_detection/ssd_mobilenet_v1_coco_2018_01_28.tar.gz";
+            string url = "https://github.com/mbondarev779/ssd_mobilenet_v2_coco_2018_01_28/archive/master.tar.gz";
+            Web.Download(url, modelDir, "ssd_mobilenet_v2_coco-master.tar.gz");
+            Compress.ExtractTGZ(Path.Join(modelDir, "ssd_mobilenet_v2_coco-master.tar.gz"), "./");
+
+            /*
             string sourceDirectory = @"C:\Users\mbond\source\repos\my_object_detection_model\ssd_mobilenet_v2_coco_2018_01_28";
             
             string destinationDirectory = @"C:\Users\mbond\source\repos\my_object_detection_model\test\bin\Debug\netcoreapp3.1\ssd_mobilenet_v2_coco_2018_01_28";
@@ -96,11 +100,11 @@ namespace test
                 Directory.Move(sourceDirectory, destinationDirectory);
             }
             //Compress.ExtractTGZ(Path.Join(modelDir, "ssd_mobilenet_v2_coco.tar.gz"), "./");
-
+            */
             // download sample picture
-            string url = $"https://raw.githubusercontent.com/mbondarev779/my_object_detection_model/master/input.jpg";
+            url = $"https://raw.githubusercontent.com/mbondarev779/my_object_detection_model/master/input.jpg";
             Web.Download(url, imageDir, "input.jpg");
-
+            
             // download the pbtxt file
             //url = $"https://raw.githubusercontent.com/mbondarev779/my_object_detection_model/master/label_map.pbtxt";
             //Web.Download(url, modelDir, "label_map.pbtxt");
