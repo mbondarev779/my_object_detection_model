@@ -102,8 +102,8 @@ namespace test
             Web.Download(url, imageDir, "input.jpg");
 
             // download the pbtxt file
-            url = $"https://raw.githubusercontent.com/mbondarev779/my_object_detection_model/master/label_map.pbtxt";
-            Web.Download(url, modelDir, "label_map.pbtxt");
+            //url = $"https://raw.githubusercontent.com/mbondarev779/my_object_detection_model/master/label_map.pbtxt";
+            //Web.Download(url, modelDir, "label_map.pbtxt");
         }
         
         private NDArray ReadTensorFromImageFile(string file_name)
