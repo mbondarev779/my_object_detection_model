@@ -85,22 +85,7 @@ namespace test
             Web.Download(url, modelDir, "ssd_mobilenet_v2_coco-master.tar.gz");
             Compress.ExtractTGZ(Path.Join(modelDir, "ssd_mobilenet_v2_coco-master.tar.gz"), "./");
 
-            /*
-            string sourceDirectory = @"C:\Users\mbond\source\repos\my_object_detection_model\ssd_mobilenet_v2_coco_2018_01_28";
             
-            string destinationDirectory = @"C:\Users\mbond\source\repos\my_object_detection_model\test\bin\Debug\netcoreapp3.1\ssd_mobilenet_v2_coco_2018_01_28";
-            string f = @"C:\Users\mbond\source\repos\my_object_detection_model\test\bin\Debug\netcoreapp3.1\ssd_mobilenet_v2_coco_2018_01_28\frozen_inference_graph.pb";
-            var tr = File.Exists(f);
-            if (tr)
-            {
-             
-            }
-            else 
-            {
-                Directory.Move(sourceDirectory, destinationDirectory);
-            }
-            //Compress.ExtractTGZ(Path.Join(modelDir, "ssd_mobilenet_v2_coco.tar.gz"), "./");
-            */
             // download sample picture
             url = $"https://raw.githubusercontent.com/mbondarev779/my_object_detection_model/master/input.jpg";
             Web.Download(url, imageDir, "input.jpg");
