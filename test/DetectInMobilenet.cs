@@ -79,17 +79,26 @@ namespace test
         public override void PrepareData()
         {
             // get model file
-            string url = "https://github.com/mbondarev779/my_object_detection_model/ssd_mobilenet_v2_coco_2018_01_28.tar.gz";
-            Web.Download(url, modelDir, "ssd_mobilenet_v2_coco.tar.gz");
-
-            Compress.ExtractTGZ(Path.Join(modelDir, "ssd_mobilenet_v2_coco.tar.gz"), "./");
+            //string url = "https://github.com/mbondarev779/my_object_detection_model/archive/ssd_mobilenet_v2_coco_2018_01_28.tar.gz";
+            //Web.Download(url, modelDir, "ssd_mobilenet_v2_coco.tar.gz");
+            
+            string sourceDirectory = @"C:\Users\mbond\source\repos\my_object_detection_model\ssd_mobilenet_v2_coco_2018_01_28";
+            
+            string destinationDirectory = @"C:\Users\mbond\source\repos\my_object_detection_model\test\bin\Debug\netcoreapp3.1\ssd_mobilenet_v2_coco_2018_01_28";
+            var tr = File.Exists(sourceDirectory);
+            if (tr)
+            {
+                Directory.Move(sourceDirectory, destinationDirectory);
+            }
+            else { }
+            //Compress.ExtractTGZ(Path.Join(modelDir, "ssd_mobilenet_v2_coco.tar.gz"), "./");
 
             // download sample picture
-            url = $"https://github.com/mbondarev779/my_object_detection_model/input.jpg";
+            string url = $"https://raw.githubusercontent.com/mbondarev779/my_object_detection_model/master/input.jpg";
             Web.Download(url, imageDir, "input.jpg");
 
             // download the pbtxt file
-            url = $"https://github.com/mbondarev779/my_object_detection_model/label_map.pbtxt";
+            url = $"https://raw.githubusercontent.com/mbondarev779/my_object_detection_model/master/label_map.pbtxt";
             Web.Download(url, modelDir, "label_map.pbtxt");
             Console.WriteLine("КАЧАЮ ФАЙЛЫ", Color.Blue);
         }
